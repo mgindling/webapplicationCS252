@@ -1,5 +1,6 @@
 /*CSS file for the web application*/
 
+/*Styles the basic body components*/
 body {
     background-color: #cbcaca;
 }
@@ -25,7 +26,19 @@ p {
 
 img {
     width: 50%;
+    margin-top: 500px;
     margin-left: auto;
     margin-right: auto;
     display: block;
+}
+
+/*Styles the main part of the application*/
+.calculatorMain {
+    float: left;
+    padding-left: 5%;
+}
+
+.buttonList {
+    float: right;
+    padding-right: 5%;
 }
