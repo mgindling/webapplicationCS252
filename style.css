@@ -24,7 +24,8 @@ p {
     font-size: 16px;
 }
 
-img {
+/*This can probably be deleted in the final product*/
+.potato {
     width: 50%;
     margin-top: 500px;
     margin-left: auto;
@@ -32,13 +33,53 @@ img {
     display: block;
 }
 
+/*Styles the section of the webpage that the application will appear in*/
+.application {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #e6e3e3;
+    overflow: hidden;
+    padding: 25px;
+}
+
 /*Styles the main part of the application*/
 .calculatorMain {
     float: left;
     padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 0px;
 }
 
+.calculatorMain p {
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+}
+
+/*Styles the part of the application that has all the gravity buttons*/
 .buttonList {
     float: right;
     padding-right: 5%;
+}
+
+.buttonList p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    text-align: left;
+}
+
+.buttonList ul {
+    list-style: none;
+    margin-left: -35px;
+}
+
+.buttonList li {
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.buttonList button {
+    width: 80px;
+    height: 30px;
 }
