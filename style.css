@@ -57,10 +57,17 @@ p {
     font-size: 16px;
 }
 
+/*Styles the picture of the planet that appears next to the list of buttons*/
+.imgColumn {
+    float: right;
+    padding-right: 5%;
+    padding-top: 135px;
+}
+
 /*Styles the part of the application that has all the gravity buttons*/
 .buttonList {
     float: right;
-    padding-right: 5%;
+    padding-right: 15px;
 }
 
 .buttonList p {
