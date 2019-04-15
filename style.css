@@ -24,15 +24,6 @@ p {
     font-size: 16px;
 }
 
-/*This can probably be deleted in the final product*/
-.potato {
-    width: 50%;
-    margin-top: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
-
 /*Styles the section of the webpage that the application will appear in*/
 .application {
     width: 75%;
@@ -89,4 +80,39 @@ p {
 .buttonList button {
     width: 80px;
     height: 30px;
+}
+
+/*Styles the footer section*/
+.footer {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    overflow: hidden;
+}
+
+.potato {
+    float: left;
+}
+
+.splash {
+    float: left;
+    width: 200px;
+    padding-left: 15px;
+}
+
+.splash h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.credits {
+    float: right;
+    margin-top: 20px;
+}
+
+.credits h3 {
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
