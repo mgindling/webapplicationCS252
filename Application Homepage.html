@@ -12,9 +12,7 @@
     <link rel="stylesheet" href="style.css" style="text/css">
     
     <!-- Javascript will probably go mostly here (or in its own file) -->
-    <script>
-        
-    </script>
+    <script src="practiceScript.js"></script>
 
 </head>
 
@@ -36,21 +34,21 @@
 
         <!-- Contains a picture of the planet that gravity has been selected for-->
         <div class="imgColumn">
-            <img src="Resources/earth.png" alt="Selected Gravity Planet" width="130" height="130" />
+            <img src="Resources/earth.png" alt="Selected Gravity Planet" width="130" height="130" id="planet" />
         </div>
 
         <!-- Contains the different gravity options for the calculator -->
         <div class="buttonList">
             <p>Select your gravity:</p>
             <ul>
-                <li><button>Mercury</button></li>
-                <li><button>Venus</button></li>
-                <li><button>Earth</button></li>
-                <li><button>Mars</button></li>
-                <li><button>Jupiter</button></li>
-                <li><button>Saturn</button></li>
-                <li><button>Uranus</button></li>
-                <li><button>Neptune</button></li>
+                <li><button onclick="changePlanet('mercury')">Mercury</button></li>
+                <li><button onclick="changePlanet('venus')">Venus</button></li>
+                <li><button onclick="changePlanet('earth')">Earth</button></li>
+                <li><button onclick="changePlanet('mars')">Mars</button></li>
+                <li><button onclick="changePlanet('jupiter')">Jupiter</button></li>
+                <li><button onclick="changePlanet('saturn')">Saturn</button></li>
+                <li><button onclick="changePlanet('uranus')">Uranus</button></li>
+                <li><button onclick="changePlanet('neptune')">Neptune</button></li>
             </ul>
         </div>
 
