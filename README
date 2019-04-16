@@ -1,0 +1,9 @@
+Keon Gorge - kgorge@purdue.edu
+Mark Gindling - mgindlin@purdue.edu
+
+Cannon Game
+
+A simple game that asks you to hit a target by inputting values like angle and velocity so that the projectile shot by the cannon will hit the target.
+
+We will be using java as the server end, and HTML5 as the front end.
+The goal is to host on AWS with the free credits from the Github student pack.
