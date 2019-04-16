@@ -3,6 +3,8 @@
 /*Styles the basic body components*/
 body {
     background-color: #cbcaca;
+    padding: 0;
+    margin: 0;
 }
 
 h1 {
@@ -80,15 +82,44 @@ p {
 .buttonList button {
     width: 80px;
     height: 30px;
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 9pt;
+    cursor: pointer;
+}
+
+/*Styles the button that will actually run the script*/
+.calculate {
+    margin-top: 435px;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.calculate button {
+    height: 50px;
+    width: 170px;
+    font-family:  Arial, 'Arial Black', Verdana, sans-serif;
+    font-size: 16pt;
+    font-weight: bolder;
+    background-color: #bfbfbf;
+    cursor: pointer;
 }
 
 /*Styles the footer section*/
+
+.footerBody {
+    background-color: #b1b0b0;
+    overflow: hidden;
+    margin-top: 50px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
 .footer {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 20px;
-    overflow: hidden;
 }
 
 .potato {
