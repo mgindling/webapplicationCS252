@@ -10,6 +10,21 @@
 
     <!-- Links to the main CSS file -->
     <link rel="stylesheet" href="style.css" style="text/css">
+
+    
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAZPgoe-odx_jMKVT704oRHok4OdTmbhV0",
+        authDomain: "cannon-game-a2e42.firebaseapp.com",
+        databaseURL: "https://cannon-game-a2e42.firebaseio.com",
+        projectId: "cannon-game-a2e42",
+        storageBucket: "cannon-game-a2e42.appspot.com",
+        messagingSenderId: "517012919916"
+      };
+      firebase.initializeApp(config);
+    </script>
     
     <!-- Javascript will probably go mostly here (or in its own file) -->
     <script src="practiceScript.js"></script>
