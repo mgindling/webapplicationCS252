@@ -50,14 +50,14 @@ h2 {
 /*Styles the picture of the planet that appears next to the list of buttons*/
 .imgColumn {
     float: right;
-    padding-right: 5%;
-    padding-top: 135px;
+    padding-right: 4%;
+    padding-top: 65px;
 }
 
 /*Styles the part of the application that has all the gravity buttons*/
 .buttonList {
     float: right;
-    padding-right: 15px;
+    padding-right: 35px;
 }
 
 .buttonList p {
