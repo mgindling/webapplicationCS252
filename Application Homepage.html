@@ -11,11 +11,10 @@
     <!-- Links to the main CSS file -->
     <link rel="stylesheet" href="style.css" style="text/css">
 
-    
+    <!-- Firebase Javascript -->
     <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
     <script>
-
-      // Initialize Firebase
+      // Initializes Firebase
       var config = {
         apiKey: "AIzaSyAZPgoe-odx_jMKVT704oRHok4OdTmbhV0",
         authDomain: "cannon-game-a2e42.firebaseapp.com",
@@ -25,10 +24,13 @@
         messagingSenderId: "517012919916"
       };
       firebase.initializeApp(config);
-
     </script>
     
-    <!-- Javascript will probably go mostly here (or in its own file) -->
+    <!-- Imports Javascript Library, including math (for functions) and plot.ly (for graphs) -->
+    <script src="https://unpkg.com/mathjs@5.9.0/dist/math.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-1.35.2.min.js"></script>
+
+    <!-- Custom Javascript goes here -->
     <script src="practiceScript.js"></script>
 
 </head>
