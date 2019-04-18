@@ -14,6 +14,7 @@
     
     <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
     <script>
+
       // Initialize Firebase
       var config = {
         apiKey: "AIzaSyAZPgoe-odx_jMKVT704oRHok4OdTmbhV0",
@@ -24,6 +25,7 @@
         messagingSenderId: "517012919916"
       };
       firebase.initializeApp(config);
+
     </script>
     
     <!-- Javascript will probably go mostly here (or in its own file) -->
@@ -43,7 +45,7 @@
         <div class="calculatorMain">
             <img src="Resources/Sample graph.png" alt="Sample Graph" width="500" height="300" />
             <p id="shotInformation">The projectile will stay in the air for 0.00 seconds and travel 0.00 meters.</p>
-            <p>Enter the angle: <input type="text" style="margin-left: 20px;" id="angle" /> degrees</p>
+            <p>Enter the angle: <input type="text" style="margin-left: 20px;" id="angle" onclick="clearInput('angle')" /> degrees</p>
             <p>Enter the power: <input type="text" style="margin-left: 14px;" id="power" /> meters per second</p>
         </div>
 
