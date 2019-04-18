@@ -4,10 +4,11 @@ function calculateArc() {
     var angle = document.getElementById("angle").value;
     var power = document.getElementById("power").value;
 
-    /*  -- Calculates the trajectory based on the formula y = (2 * p * cos(a) * sin(a)) / g --  */
+    /*  -- Calculates the trajectory based on the maths of physics */
+    var trajectoryTime = (-2 * power) / (currentgravity);
+    var trajectoryDistance = (2 * power * Math.cos(angle * (Math.PI/180)));
 
-    var trajectory = (2 * power * Math.cos(angle) * Math.sin(angle)) / currentgravity;
-    document.getElementById("shotInformation").innerHTML = "The projectile will stay in the air for 0.00 seconds and travel " + trajectory.toFixed(2) + " meters."
+    document.getElementById("shotInformation").innerHTML = "The projectile will stay in the air for " + trajectoryTime.toFixed(2) + " seconds and travel " + trajectoryDistance.toFixed(2) + " meters."
 }
 
 function changePlanet(parameter1) {
