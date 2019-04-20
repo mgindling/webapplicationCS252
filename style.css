@@ -30,6 +30,34 @@ h2 {
     padding: 25px;
 }
 
+/*All the heading styles for application are used to style the leaderboards*/
+.application h1 {
+    font-size: 38pt;
+    font-family: 'Arial Black', Verdana, Arial, sans-serif;
+    font-weight: bolder;
+}
+
+.application h2 {
+    font-size: 32pt;
+    font-family: 'Arial Black', Verdana, Arial, sans-serif;
+    font-weight: bold;
+}
+
+.application h3 {
+    font-size: 26pt;
+    font-family: 'Arial Black', Verdana, Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin-top: -12px;
+}
+
+.application h4 {
+    font-size: 20pt;
+    font-family: Arial, 'Arial Black', Verdana, sans-serif;
+    font-weight: bolder;
+    text-align: center;
+}
+
 /*Styles the main part of the application*/
 .calculatorMain {
     float: left;
@@ -160,6 +188,15 @@ h2 {
     font-weight: bolder;
     background-color: #adadad;
     cursor: pointer;
+}
+
+.playGame ul {
+    list-style: none;
+}
+
+.playGame li {
+    display: inline;
+    padding-right: 50px;
 }
 
 /*Styles the footer section*/
