@@ -73,6 +73,13 @@ h2 {
     width: 100%;
 }
 
+.graphDiv {
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    background-color: #eaf869;
+}
+
 /*STYLING FOR THE PRACTICE PAGE*/
 /*-------------------------------------------------------------------------*/
 /*Styles the picture of the planet that appears next to the list of buttons*/

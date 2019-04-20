@@ -36,8 +36,8 @@ function calculateArc() {
     else {
 
         /* Calculates the trajectory based on the maths of physics */
-        var trajectoryTime = (-2 * power) / (currentgravity);
-        var trajectoryDistance = (2 * power * Math.cos(angle * (Math.PI / 180)));
+        var trajectoryTime = (-2 * power * Math.sin(angle * (Math.PI / 180))) / (currentgravity);
+        var trajectoryDistance = (Math.pow(power, 2) * Math.sin(2 * angle * (Math.PI / 180))) / (-1 * currentgravity);
         document.getElementById("shotInformation").innerHTML = "The projectile will stay in the air for " + trajectoryTime.toFixed(2) + " seconds and travel " + trajectoryDistance.toFixed(2) + " meters."
 
     }
