@@ -1,7 +1,5 @@
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.FirestoreOptions;
-import com.google.cloud.firestore.QueryDocumentSnapshot;
-import com.google.cloud.firestore.QuerySnapshot;
+import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;
 import io.javalin.Context;
 import io.javalin.Javalin;
@@ -11,7 +9,6 @@ import java.io.*;
 import java.util.List;
 
 import com.google.auth.oauth2.GoogleCredentials;
-import com.google.cloud.firestore.Firestore;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -89,10 +86,13 @@ public class cannonGame {
             // query.get() blocks on response
             QuerySnapshot querySnapshot = query.get();
             List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
-            System.out.println("All users:\n");
+            //System.out.println("All users:\n");
             for (QueryDocumentSnapshot document : documents) {
-                ctx.html(document.getId());
+                ctx.json(document.get("score"));
             }
+//            DocumentReference dr = db.collection("users").document("Keon");
+//            Score test = new Score();
+//            ApiFuture<WriteResult> result = dr.set(test);
         });
     }
 }
