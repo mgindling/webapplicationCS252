@@ -7,6 +7,7 @@ import io.javalin.staticfiles.Location;
 
 import java.io.*;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import com.google.auth.oauth2.GoogleCredentials;
 
@@ -24,6 +25,42 @@ public class cannonGame {
         System.out.println(ctx.queryParam("user"));
         s.score++;
         ctx.json(s);
+    }
+
+    public List readUsers(Firestore db) {
+        // asynchronously retrieve all users
+        ApiFuture<QuerySnapshot> query = db.collection("users").get();
+        // ...
+        // query.get() blocks on response
+        QuerySnapshot querySnapshot = null;
+        try {
+            querySnapshot = query.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
+        return documents;
+    }
+
+    public static void updateScore(Firestore db, String name, int total, int made) {
+        DocumentReference dr = db.collection("users").document(name);
+        User user = new User(name, total, made);
+        ApiFuture<WriteResult> result = dr.set(user);
+
+    }
+
+    public void sendUsers(Context ctx, List<QueryDocumentSnapshot> documents) {
+        for (QueryDocumentSnapshot document : documents) {
+            //TODO: figure out how to send all this stuff
+            ctx.json(document.get("name"));
+            ctx.json(document.get("score"));
+        }
+    }
+
+    public void writeUser(Context ctx, String name, int total, int made) {
+
     }
 
     public static void main(String[] args) {
@@ -88,11 +125,10 @@ public class cannonGame {
             List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
             //System.out.println("All users:\n");
             for (QueryDocumentSnapshot document : documents) {
+                //ctx.json(document.get("name"));
                 ctx.json(document.get("score"));
             }
-//            DocumentReference dr = db.collection("users").document("Keon");
-//            Score test = new Score();
-//            ApiFuture<WriteResult> result = dr.set(test);
+            updateScore(db, "Mark", 20, 12);
         });
     }
 }
