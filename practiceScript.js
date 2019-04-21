@@ -42,8 +42,8 @@ function calculateArc() {
         var trajectoryDistance = (Math.pow(power, 2) * Math.sin(2 * angle * (Math.PI / 180))) / (-1 * currentgravity);
         document.getElementById("shotInformation").innerHTML = "The projectile will stay in the air for " + trajectoryTime.toFixed(2) + " seconds and travel " + trajectoryDistance.toFixed(2) + " meters."
 
-        // Sets another global variable for the graph.
-        currentdistance = distance;
+        /* Sets another global variable for the graph. */
+        currentdistance = trajectoryDistance;
         drawGraph();
     }
 }

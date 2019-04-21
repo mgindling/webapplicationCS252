@@ -49,9 +49,9 @@ function draw() {
 
 // What will be called originally.
 function drawGraph() {
-    event.preventDefault()
-    draw()
+    event.preventDefault();
+    draw();
 }
 
-// I have no idea what this does but it makes the program work.
+// I have no idea what this does but it should make the program work.
 draw()
