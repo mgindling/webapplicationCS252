@@ -14,7 +14,7 @@ function draw() {
         // where h = 0 and v, a are set by the user (and pi is pi).
 
         // Constructs the equation.
-        var equation = "y = -((1/2)(" + currentgravity + ")) * (x / (" + currentpower + " + cos(" + currentangle + " * pi/180)))^2 + tan(" + currentangle + " * pi/180) * x";
+        var equation = "y = ((1/2)(" + currentgravity + ")) * (x / (" + currentpower + " + cos(" + currentangle + " * pi/180)))^2 + tan(" + currentangle + " * pi/180) * x";
 
         // Compiles the expression (the graph is drawn recursively, I believe)
         const compiledEquation = math.compile(equation);
