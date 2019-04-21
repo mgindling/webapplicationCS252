@@ -1,0 +1,4 @@
+y = h - 4.9 ( (x) / (v * cos(a * pi/180)) )^2 + tan(a * pi/180) * x
+
+^^^^^^^^^^^
+This should be the formula to draw an arc with the information given. From here the libraries I've included should let me draw the graph relatively easily.
