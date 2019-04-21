@@ -1,5 +1,3 @@
-var currentgravity = -9.8;
-
 /* Performs the main calculator function */
 function calculateArc() {
     var angle = document.getElementById("angle").value;
@@ -35,48 +33,20 @@ function calculateArc() {
     }
     else {
 
+        /* Sets global variables so the graph can work. */
+        currentangle = angle;
+        currentpower = power;
+
         /* Calculates the trajectory based on the maths of physics */
         var trajectoryTime = (-2 * power * Math.sin(angle * (Math.PI / 180))) / (currentgravity);
         var trajectoryDistance = (Math.pow(power, 2) * Math.sin(2 * angle * (Math.PI / 180))) / (-1 * currentgravity);
         document.getElementById("shotInformation").innerHTML = "The projectile will stay in the air for " + trajectoryTime.toFixed(2) + " seconds and travel " + trajectoryDistance.toFixed(2) + " meters."
 
+        // Sets another global variable for the graph.
+        currentdistance = distance;
+        drawGraph();
     }
 }
-
-/* Draws the graph: Code Adapted from open source on https://mathjs.org/examples/browser/plot.html.html */
-function drawGraph() {
-    try {
-        // compile the expression once
-        // const expression = document.getElementById('eq').value
-        // const expr = math.compile(expression)
-
-        // evaluate the expression repeatedly for different values of x
-        // const xValues = math.range(0, 50, 0.25).toArray()
-        // const yValues = xValues.map(function (x) {
-//            return expr.eval({ x: x })
-//        })
-
-//        // render the plot using plotly
-//        const trace1 = {
-//            x: xValues,
-//            y: yValues,
-//            type: 'scatter'
-//        }
-//        const data = [trace1]
-//        Plotly.newPlot('plot', data)
-    }
-    catch (err) {
-        console.error(err);
-        alert(err);
-    }
-}
-
-//document.getElementById('form').onsubmit = function (event) {
-//    event.preventDefault()
-//    draw()
-//}
-
-//draw()
 
 /* Changes the picture of the planet on the practice calculator */
 function changePlanet(parameter1) {
