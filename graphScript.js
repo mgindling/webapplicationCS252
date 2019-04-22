@@ -42,7 +42,7 @@ function draw() {
         // Creates the style for the graph using plotly.js
         var layout = {
             xaxis: { range: [0, 500] },
-            yaxis: { range: [0, 50] }
+            yaxis: { range: [0, 75] }
         };
 
         const data = [trace1];
