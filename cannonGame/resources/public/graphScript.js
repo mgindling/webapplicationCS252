@@ -8,9 +8,18 @@ var currentdistance = 0;
 var intersect_target = false;
 var currentX = (Math.random() * 401) + 50;
 var currentY = (Math.random() * 25) + 151;
+var redraw = false;
+var newpoint = false;
 
 function draw() {
     try {
+
+        // Sets a new random point if that needs to be done.
+        if (newpoint == true) {
+            currentX = (Math.random() * 401) + 50;
+            currentY = (Math.random() * 25) + 151;
+            newpoint = false;
+        }
 
         // The gravity level should still be a thing because that's just how Javascript rolls.
         // The equation is y = h - 4.9 ( (x) / (v * cos(a * pi/180)) )^2 + tan(a * pi/180) * x
@@ -83,8 +92,9 @@ function draw() {
         else {
 
             // The check for the practice round needs to be more dynamic
-            if (yValues.length - 1 >= currentX.toFixed(0) * 4) {
-                if (yValues[currentX.toFixed(0) * 4] > currentX.toFixed(0) - 2 && yValues[currentX.toFixed(0) * 4] < currentX.toFixed(0) + 2) {
+            var check_position = (currentX * 4).toFixed(0);
+            if (yValues.length - 1 >= check_position) {
+                if (yValues[check_position] > currentY - 5 && yValues[check_position] < currentY + 5) {
                     intersect_target = true;
                 }
                 else {
@@ -95,6 +105,13 @@ function draw() {
                 intersect_target = false;
             }
 
+        }
+
+        if (redraw == true) {
+            const data = [trace1, trace2];
+            Plotly.newPlot('plot', data, layout);
+            redraw = false;
+            return;
         }
 
         // Draws the graph depending on what game type is active
