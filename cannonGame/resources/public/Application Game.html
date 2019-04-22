@@ -13,8 +13,9 @@
     <!-- Imports Javascript Library, including math (for functions) and plot.ly (for graphs) -->
     <script src="https://unpkg.com/mathjs@5.9.0/dist/math.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-1.35.2.min.js"></script>
-
-    <!-- Sets the -->
+    <script>
+        var gameActive = true;
+    </script>
 
 </head>
 
@@ -34,7 +35,7 @@
             <p id="shotInformation">The projectile stayed in the air for 0.00 seconds and traveled 0.00 meters.</p>
             <p style="margin-top: -10px;" id="yourewinner">You have not hit the target!</p>
             <p>Enter the angle: <input type="text" style="margin-left: 20px;" id="angle" onclick="clearInput('angle')" /> degrees</p>
-            <p>Enter the power: <input type="text" style="margin-left: 14px;" id="power" onclick="clearInput('angle')" /> meters per second</p>
+            <p>Enter the power: <input type="text" style="margin-left: 14px;" id="power" onclick="clearInput('power')" /> meters per second</p>
         </div>
 
         <!-- Constructs the part of the calculator that shows what level the user is on -->
@@ -42,7 +43,7 @@
             <img src="Resources/earth.png" alt="Current Planet: Earth" width="250" height="250" />
             <h3>Earth</h3>
             <h4>Gravity = 9.8 m/s<sup>2</sup></h4>
-            <h4>Target = (400, 40)</h4>
+            <h4 id="targetInfo">Target = (400, 40)</h4>
             <button onclick="calculateArc()">Fire!</button>
         </div>
 

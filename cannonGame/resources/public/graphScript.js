@@ -6,6 +6,8 @@ var currentpower = 0;
 var currentangle = 0;
 var currentdistance = 0;
 var intersect_target = false;
+var currentX = (Math.random() * 401) + 50;
+var currentY = (Math.random() * 25) + 151;
 
 function draw() {
     try {
@@ -48,6 +50,13 @@ function draw() {
             name: 'Target'
         };
 
+        const trace3 = {
+            x: [currentX],
+            y: [currentY],
+            type: 'scatter',
+            name: 'Target'
+        }
+       
         // Creates the style for the graph using plotly.js
         var layout = {
             xaxis: { range: [0, 500] },
@@ -55,15 +64,49 @@ function draw() {
         };
 
         // Checks to see if the graph hit the target
-        if (yValues.length - 1 >= 1600) {
-            if (yValues[1600] > 38 && yValues[1600] < 42) {
-                intersect_target = true;
+        if (gameActive == false) {
+
+            // The check for the practice round is basically hardcoded.
+            if (yValues.length - 1 >= 1600) {
+                if (yValues[1600] > 38 && yValues[1600] < 42) {
+                    intersect_target = true;
+                }
+                else {
+                    intersect_target = false;
+                }
             }
+            else {
+                intersect_target = false;
+            }
+
+        }
+        else {
+
+            // The check for the practice round needs to be more dynamic
+            if (yValues.length - 1 >= currentX.toFixed(0) * 4) {
+                if (yValues[currentX.toFixed(0) * 4] > currentX.toFixed(0) - 2 && yValues[currentX.toFixed(0) * 4] < currentX.toFixed(0) + 2) {
+                    intersect_target = true;
+                }
+                else {
+                    intersect_target = false;
+                }
+            }
+            else {
+                intersect_target = false;
+            }
+
         }
 
-        // Draws the graph.
-        const data = [trace1, trace2];
-        Plotly.newPlot('plot', data, layout);
+        // Draws the graph depending on what game type is active
+        if (gameActive == false) {
+            const data = [trace1, trace2];
+            Plotly.newPlot('plot', data, layout);
+        }
+        else {
+            const data = [trace1, trace3];
+            Plotly.newPlot('plot', data, layout);
+            document.getElementById("targetInfo").innerHTML = "Target: (" + currentX.toFixed(2) + ", " + currentY.toFixed(2) + ")";
+        }
     }
     catch (err) {
         console.error(err);
