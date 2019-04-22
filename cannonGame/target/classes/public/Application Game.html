@@ -1,0 +1,79 @@
+﻿<!doctype html>
+<html>
+
+<head>
+
+    <!-- Sets character set as Unicode and titles the webpage -->
+    <meta charset="utf-8">
+    <title>CS 25200 Lab 6 Application: Cannon Game</title>
+
+    <!-- Links to the main CSS file -->
+    <link rel="stylesheet" href="style.css" style="text/css">
+
+    <!-- Imports Javascript Library, including math (for functions) and plot.ly (for graphs) -->
+    <script src="https://unpkg.com/mathjs@5.9.0/dist/math.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-1.35.2.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Headings for the Web Application -->
+    <h1>CS 25200 Lab 6 Web Application</h1>
+    <h2>Trajectory Game</h2>
+
+    <!-- Constructs the main body of the application -->
+    <div class="application">
+        
+        <!-- Constructs the main part of the calculator (including the graph and the input)-->
+        <div class="calculatorMain">
+            <!--<img src="Resources/Sample graph.png" alt="Sample Graph" width="500" height="300" />-->
+            <div id="plot" class="graphDiv"></div>
+            <p id="shotInformation">The projectile stayed in the air for 0.00 seconds and traveled 0.00 meters.</p>
+            <p>Enter the angle: <input type="text" style="margin-left: 20px;" id="angle" onclick="clearInput('angle')" /> degrees</p>
+            <p>Enter the power: <input type="text" style="margin-left: 14px;" id="power" onclick="clearInput('angle')" /> meters per second</p>
+        </div>
+
+        <!-- Constructs the part of the calculator that shows what level the user is on -->
+        <div class="levelInfo">
+            <img src="Resources/earth.png" alt="Current Planet: Earth" width="250" height="250" />
+            <h3>Earth</h3>
+            <h4>Gravity = 9.8 m/s<sup>2</sup></h4>
+            <h4>Target = (400, 40)</h4>
+            <button onclick="calculateArc()">Fire!</button>
+        </div>
+
+    </div>
+
+    <!-- This section contains the text after the web application as well as the button that takes the user to the actual game -->
+    <div class="playGame">
+        <p>Decide the power and angle of your shots according to the current planet's gravity. When you are sure of your calculations, press the fire button. If you need or want more practice, click the button below to go back to the practice page.</p>
+        <!-- Visual Studio gives a warning for the line below but the button still works as intended -->
+        <a href="index.html"><button style="width: 200px;">Practice More</button></a>
+        <br />
+        <br />
+        <a href="Application Leaderboards.html"><button style="width: 170px; height: 35px; font-size: 12pt;">Leaderboards</button></a>
+    </div>
+
+    <!-- This section constructs the footer of the website -->
+    <div class="footerBody">
+        <div class="footer">
+            <div class="potato">
+                <img src="Resources/potat.png" alt="Potato Tech" width="85" height="65" />
+            </div>
+            <div class="splash">
+                <h3><i>Powered by <br />Potato Technology</i></h3>
+            </div>
+            <div class="credits">
+                <h3>Built by Mark Gindling and Keon Gorge for CS 25200, Purdue University, April 2019</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Javascript goes here -->
+    <script src="graphScript.js"></script>
+    <script src="gameScript.js"></script>
+
+</body>
+
+</html>

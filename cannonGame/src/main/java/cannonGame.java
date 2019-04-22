@@ -67,8 +67,8 @@ public class cannonGame {
     public static void main(String[] args) {
         Javalin app = Javalin
                 .create()
-                //.enableStaticFiles("/public")
-                .enableStaticFiles("../", Location.EXTERNAL)
+                .enableStaticFiles("/public")
+                //.enableStaticFiles("../", Location.EXTERNAL)
                 .start(7000);
 
         // Use a service account
