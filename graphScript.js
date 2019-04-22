@@ -32,14 +32,21 @@ function draw() {
         const xValues = math.range(0, end, 0.25).toArray();
         const yValues = xValues.map(function (x) { return compiledEquation.eval({ x: x }) });
 
-        // Creates the graph using plot.ly
+        // Creates the data for the graph using plotly.js
         const trace1 = {
             x: xValues,
             y: yValues,
             type: 'scatter'
-        }
-        const data = [trace1]
-        Plotly.newPlot('plot', data)
+        };
+
+        // Creates the style for the graph using plotly.js
+        var layout = {
+            xaxis: { range: [0, 500] },
+            yaxis: { range: [0, 50] }
+        };
+
+        const data = [trace1];
+        Plotly.newPlot('plot', data, layout);
     }
     catch (err) {
         console.error(err);
