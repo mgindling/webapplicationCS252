@@ -27,7 +27,7 @@ public class cannonGame {
         ctx.json(s);
     }
 
-    public List readUsers(Firestore db) {
+    public static List readUsers(Firestore db) {
         // asynchronously retrieve all users
         ApiFuture<QuerySnapshot> query = db.collection("users").get();
         // ...
@@ -51,12 +51,13 @@ public class cannonGame {
 
     }
 
-    public void sendUsers(Context ctx, List<QueryDocumentSnapshot> documents) {
-        for (QueryDocumentSnapshot document : documents) {
-            //TODO: figure out how to send all this stuff
-            ctx.json(document.get("name"));
-            ctx.json(document.get("score"));
-        }
+    public static void sendUsers(Context ctx, List<QueryDocumentSnapshot> documents) {
+        ctx.json(documents);
+//        for (QueryDocumentSnapshot document : documents) {
+//            //TODO: figure out how to send all this stuff
+//            ctx.json(document.get("name"));
+//            ctx.json(document.get("score"));
+//        }
     }
 
     public void writeUser(Context ctx, String name, int total, int made) {
@@ -117,18 +118,9 @@ public class cannonGame {
         });
 
         app.get("/score", ctx -> {
-            // asynchronously retrieve all users
-            ApiFuture<QuerySnapshot> query = db.collection("users").get();
-            // ...
-            // query.get() blocks on response
-            QuerySnapshot querySnapshot = query.get();
-            List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
-            //System.out.println("All users:\n");
-            for (QueryDocumentSnapshot document : documents) {
-                //ctx.json(document.get("name"));
-                ctx.json(document.get("score"));
-            }
-            updateScore(db, "Mark", 20, 12);
+
+            sendUsers(ctx, readUsers(db));
+            //updateScore(db, "Mark", 20, 12);
         });
     }
 }
