@@ -5,7 +5,7 @@ var currentgravity = -9.8;
 var currentpower = 0;
 var currentangle = 0;
 var currentdistance = 0;
-var y_value_at_target = 0;
+var intersect_target = false;
 
 function draw() {
     try {
@@ -37,17 +37,32 @@ function draw() {
         const trace1 = {
             x: xValues,
             y: yValues,
-            type: 'scatter'
+            type: 'scatter',
+            name: 'Your Shot'
+        };
+
+        const trace2 = {
+            x: [400],
+            y: [40],
+            type: 'scatter',
+            name: 'Target'
         };
 
         // Creates the style for the graph using plotly.js
         var layout = {
             xaxis: { range: [0, 500] },
-            yaxis: { range: [0, 75] }
+            yaxis: { range: [0, 200] }
         };
 
-        // Draws the graph
-        const data = [trace1];
+        // Checks to see if the graph hit the target
+        if (yValues.length - 1 >= 1600) {
+            if (yValues[1600] > 38 && yValues[1600] < 42) {
+                intersect_target = true;
+            }
+        }
+
+        // Draws the graph.
+        const data = [trace1, trace2];
         Plotly.newPlot('plot', data, layout);
     }
     catch (err) {

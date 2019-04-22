@@ -55,6 +55,12 @@ function calculateArc() {
         drawGraph();
 
         /* Here the script will have to check and see if the arc hits the target. */
+        if (intersect_target == true) {
+            document.getElementById("yourewinner").innerHTML = "You have hit the target!";
+        }
+        else {
+            document.getElementById("yourewinner").innerHTML = "You have not hit the target!";
+        }
     }
 }
 
