@@ -28,7 +28,7 @@ public class cannonGame {
         ctx.json(s);
     }
 
-    public static List readUsers(Firestore db) {
+    public static List<QueryDocumentSnapshot> readUsers(Firestore db) {
         // asynchronously retrieve all users
         ApiFuture<QuerySnapshot> query = db.collection("users").get();
         // ...
@@ -41,8 +41,7 @@ public class cannonGame {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
-        return documents;
+        return querySnapshot.getDocuments();
     }
 
     public static void updateScore(Firestore db, String name, int total, int made) {
@@ -60,8 +59,21 @@ public class cannonGame {
         ctx.json(users);
     }
 
-    public void writeUser(Context ctx, String name, int total, int made) {
-
+    public void writeUser(Context ctx, Firestore db, String name, int total, int made) {
+        List<QueryDocumentSnapshot> documents = readUsers(db);
+        boolean userFound = false;
+        User target = null;
+        for(QueryDocumentSnapshot document : documents) {
+            if(document.get("name").equals(name)) {
+                target = new User(document.get("name"), document.get("total"), document.get("made"));
+                userFound = true;
+            }
+        }
+        if(userFound){
+            updateScore(db, target.getName(), target.getTotal()+1, target.getMade()+1);
+        }else{
+            //initialize new user
+        }
     }
 
     public static void main(String[] args) {
