@@ -1,3 +1,4 @@
+import static java.lang.Math.toIntExact;
 public class User {
     private String name;
     private int total;
@@ -9,6 +10,14 @@ public class User {
         this.total = total;
         this.made = made;
         this.name = name;
+        //this.score = ((float)(made/total)) * 100;
+    }
+
+    public User(Object name, Object total, Object made)
+    {
+        this.total = toIntExact((long)total);
+        this.made = toIntExact((long)made);
+        this.name = name.toString();
         //this.score = ((float)(made/total)) * 100;
     }
 

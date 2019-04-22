@@ -6,6 +6,7 @@ import io.javalin.Javalin;
 import io.javalin.staticfiles.Location;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -52,12 +53,11 @@ public class cannonGame {
     }
 
     public static void sendUsers(Context ctx, List<QueryDocumentSnapshot> documents) {
-        ctx.json(documents);
-//        for (QueryDocumentSnapshot document : documents) {
-//            //TODO: figure out how to send all this stuff
-//            ctx.json(document.get("name"));
-//            ctx.json(document.get("score"));
-//        }
+        List<User> users = new ArrayList<>();
+        for (QueryDocumentSnapshot document : documents) {
+            users.add(new User(document.get("name"), document.get("total"), document.get("made")));
+        }
+        ctx.json(users);
     }
 
     public void writeUser(Context ctx, String name, int total, int made) {
