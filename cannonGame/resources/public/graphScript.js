@@ -5,6 +5,7 @@ var currentgravity = -9.8;
 var currentpower = 0;
 var currentangle = 0;
 var currentdistance = 0;
+var y_value_at_target = 0;
 
 function draw() {
     try {
@@ -45,6 +46,7 @@ function draw() {
             yaxis: { range: [0, 75] }
         };
 
+        // Draws the graph
         const data = [trace1];
         Plotly.newPlot('plot', data, layout);
     }
