@@ -24,7 +24,6 @@ function createLeaderBoard(response) {
     else {
         alert("Sorry, something went wrong. Please try reloading the page.")
     }
-
 }
 
 // Makes an HHTP request for the user variables
@@ -34,7 +33,7 @@ function getHTTP() {
 
     HTTP.onreadystatechange = function () {
         if (HTTP.readyState === 4) {
-            createLeaderBoard(HTTP.responseText);
+            createLeaderBoard(HTTP.responseText)
         }
     }
 
