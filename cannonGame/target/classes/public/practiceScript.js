@@ -17,6 +17,10 @@ function calculateArc() {
         document.getElementById("angle").value = "Angle too large!";
         isCorrect = true;
     }
+    if (angle == "") {
+        document.getElementById("angle").value = "No angle entered!";
+        isCorrect = true;
+    }
 
     /* Error checks the power input box */
     if (isNaN(power)) {
@@ -25,6 +29,10 @@ function calculateArc() {
     }
     if (Number(power) < 0) {
         document.getElementById("power").value = "Power too small!";
+        isCorrect = true;
+    }
+    if (power == "") {
+        document.getElementById("power").value = "No power entered!";
         isCorrect = true;
     }
 
@@ -45,6 +53,14 @@ function calculateArc() {
         /* Sets another global variable for the graph. */
         currentdistance = trajectoryDistance;
         drawGraph();
+
+        /* Here the script checks to see if the arc hits the target. */
+        if (intersect_target == true) {
+            document.getElementById("yourewinner").innerHTML = "You have hit the target!";
+        }
+        else {
+            document.getElementById("yourewinner").innerHTML = "You have not hit the target!";
+        }
     }
 }
 

@@ -73,6 +73,7 @@ public class cannonGame {
             updateScore(db, target.getName(), target.getTotal()+1, target.getMade()+1);
         }else{
             //initialize new user
+
         }
     }
 
@@ -133,6 +134,11 @@ public class cannonGame {
 
             sendUsers(ctx, readUsers(db));
             //updateScore(db, "Mark", 20, 12);
+        });
+
+        app.get("givemestats", ctx -> {
+           //TODO: send leaderboard stats
+            sendUsers(ctx, readUsers(db));
         });
     }
 }
