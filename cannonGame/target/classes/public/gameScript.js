@@ -1,3 +1,4 @@
+/* Holds the "level" information, for lack of a better term */
 var planets = ['earth', 'mars', 'venus', 'mercury', 'jupiter', 'uranus', 'saturn', 'neptune'];
 var planetOrder = 0;
 

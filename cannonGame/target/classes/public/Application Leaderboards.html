@@ -7,6 +7,10 @@
     <meta charset="utf-8" />
     <title>CS 25200 Lab 6 Application: Cannon Game</title>
     <link rel="stylesheet" href="style.css" style="text/css">
+    <script src="leaderScript.js"></script>
+    <script>
+        getHTTP();
+    </script>
 </head>
 
 <body>
@@ -14,18 +18,22 @@
     <h1>CS 25200 Lab 6 Web Application</h1>
     <h2>Game Leaderboards</h2>
 
+    <br />
+    <p id="debug" style="text-align: center;">Debugging Information</p>
+    <br />
+
     <!-- Repurposes the application <div> to work as a leaderboard display (I should probably make more than one CSS file tbh)-->
     <div class="application">
-        <h1>Player One: Score of XXX</h1>
-        <h2>Player Two: Score of XXX</h2>
-        <h3>Player Three: Score of XXX</h3>
-        <h4>Player Four: Score of XXX</h4>
-        <h4>Player Five: Score of XXX</h4>
-        <h4>Player Six: Score of XXX</h4>
-        <h4>Player Seven: Score of XXX</h4>
-        <h4>Player Eight: Score of XXX</h4>
-        <h4>Player Nine: Score of XXX</h4>
-        <h4>Player Ten: Score of XXX</h4>
+        <h1 id="one">Player One: Score of XXX</h1>
+        <h2 id="two">Player Two: Score of XXX</h2>
+        <h3 id="three">Player Three: Score of XXX</h3>
+        <h4 id="four">Player Four: Score of XXX</h4>
+        <h4 id="five">Player Five: Score of XXX</h4>
+        <h4 id="six">Player Six: Score of XXX</h4>
+        <h4 id="seven">Player Seven: Score of XXX</h4>
+        <h4 id="eight">Player Eight: Score of XXX</h4>
+        <h4 id="nine">Player Nine: Score of XXX</h4>
+        <h4 id="ten">Player Ten: Score of XXX</h4>
     </div>
 
     <!-- Contains the buttons that takes the user back to the game or practice page -->

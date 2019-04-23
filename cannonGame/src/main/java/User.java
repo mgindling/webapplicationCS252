@@ -10,7 +10,7 @@ public class User {
         this.total = total;
         this.made = made;
         this.name = name;
-        this.score = (((long)made)/((long)total)) * 100;
+        this.score = (long)((long)made * 100.0 / (long)total);
     }
 
     public User(Object name, Object total, Object made)
@@ -18,7 +18,7 @@ public class User {
         this.total = toIntExact((long)total);
         this.made = toIntExact((long)made);
         this.name = name.toString();
-        this.score = (((long)made)/((long)total)) * 100;
+        this.score = (long)((long)made * 100.0 / (long)total);
     }
 
     public String getName() {

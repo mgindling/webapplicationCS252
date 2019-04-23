@@ -7,6 +7,7 @@ import io.javalin.staticfiles.Location;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -55,6 +56,11 @@ public class cannonGame {
         List<User> users = new ArrayList<>();
         for (QueryDocumentSnapshot document : documents) {
             users.add(new User(document.get("name"), document.get("total"), document.get("made")));
+        }
+        users.sort(Comparator.comparing(User::getScore).reversed());
+        while(users.size() > 10)
+        {
+            users.remove(users.size()-1);
         }
         ctx.json(users);
     }
