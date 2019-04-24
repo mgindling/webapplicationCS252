@@ -22,7 +22,7 @@ h2 {
 
 /*Styles the section of the webpage that the application will appear in*/
 .application {
-    width: 75%;
+    width: 1000px;
     margin-left: auto;
     margin-right: auto;
     background-color: #e6e3e3;

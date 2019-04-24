@@ -78,7 +78,7 @@ function draw() {
 
             // The check for the practice round is basically hardcoded.
             if (yValues.length - 1 >= 1600) {
-                if (yValues[1600] > 38 && yValues[1600] < 42) {
+                if (yValues[1600] > 35 && yValues[1600] < 45) {
                     intersect_target = true;
                 }
                 else {
@@ -109,10 +109,18 @@ function draw() {
         }
 
         if (redraw == true) {
-            const data = [trace1, trace3];
-            Plotly.newPlot('plot', data, layout);
-            redraw = false;
-            return;
+            if (gameActive == true) {
+                const data = [trace1, trace3];
+                Plotly.newPlot('plot', data, layout);
+                redraw = false;
+                return;
+            }
+            else {
+                const data = [trace1, trace2];
+                Plotly.newPlot('plot', data, layout);
+                redraw = false;
+                return;
+            }
         }
 
         // Draws the graph depending on what game type is active
