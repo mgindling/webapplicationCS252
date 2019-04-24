@@ -149,13 +149,17 @@ h2 {
 
 .levelInfo button {
     margin-top: 20px;
-    width: 100px;
-    height: 40px;
-    font-family: Arial, Verdana, 'Arial Black', sans-serif;
+    width: 130px;
+    height: 45px;
+    font-family: Verdana, Consolas, Arial, 'Arial Black', sans-serif;
     font-weight: bold;
-    font-size: 18px;
-    background-color: #cbcaca;
+    font-size: 20pt;
+    background-color: #9b9999;
+    border: solid medium #161616;
+    border-radius: 4px;
+    cursor: pointer;
 }
+
 /*-------------------------------------------------------------------------*/
 
 /*Styles the button that will actually run the script*/
@@ -180,6 +184,7 @@ h2 {
 /*Styles the section right after the main application (this part will be mostly static)*/
 .playGame {
     width: 85%;
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -213,7 +218,7 @@ h2 {
 .footerBody {
     background-color: #b1b0b0;
     overflow: hidden;
-    margin-top: 50px;
+    margin-top: 20px;
     padding-top: 15px;
     padding-bottom: 10px;
 }

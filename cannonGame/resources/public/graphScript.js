@@ -112,6 +112,7 @@ function draw() {
             if (gameActive == true) {
                 const data = [trace1, trace3];
                 Plotly.newPlot('plot', data, layout);
+                document.getElementById("targetInfo").innerHTML = "Target: (" + currentX.toFixed(2) + ", " + currentY.toFixed(2) + ")";
                 redraw = false;
                 return;
             }
