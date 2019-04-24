@@ -109,7 +109,7 @@ function draw() {
         }
 
         if (redraw == true) {
-            const data = [trace1, trace2];
+            const data = [trace1, trace3];
             Plotly.newPlot('plot', data, layout);
             redraw = false;
             return;
@@ -124,6 +124,12 @@ function draw() {
             const data = [trace1, trace3];
             Plotly.newPlot('plot', data, layout);
             document.getElementById("targetInfo").innerHTML = "Target: (" + currentX.toFixed(2) + ", " + currentY.toFixed(2) + ")";
+
+            // Sends a post request to the server to have it update the score.
+            var POSTMAN = new XMLHttpRequest();
+            var URL = username + "|" + intersect_target;
+            POSTMAN.open("POST", URL);
+            POSTMAN.send(null);
         }
     }
     catch (err) {

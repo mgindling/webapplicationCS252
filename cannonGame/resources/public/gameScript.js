@@ -19,6 +19,7 @@ function calculateArc() {
             newpoint = true;
         }
         changePlanet(planets[planetOrder]);
+        redraw = true;
         drawGraph();
         return;
     }
