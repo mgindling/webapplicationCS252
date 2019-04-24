@@ -127,9 +127,9 @@ function draw() {
 
             // Sends a post request to the server to have it update the score.
             var POSTMAN = new XMLHttpRequest();
-            var URL = username + "|" + intersect_target;
-            POSTMAN.open("POST", URL);
-            POSTMAN.send(null);
+            var header = username + "|" + intersect_target;
+            POSTMAN.open("POST", "updatescore");
+            POSTMAN.send(header);
         }
     }
     catch (err) {
