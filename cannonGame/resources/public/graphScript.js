@@ -126,10 +126,12 @@ function draw() {
             document.getElementById("targetInfo").innerHTML = "Target: (" + currentX.toFixed(2) + ", " + currentY.toFixed(2) + ")";
 
             // Sends a post request to the server to have it update the score.
-            var POSTMAN = new XMLHttpRequest();
-            var header = username + "|" + intersect_target;
-            POSTMAN.open("POST", "updatescore");
-            POSTMAN.send(header);
+            if (username != "") {
+                var POSTMAN = new XMLHttpRequest();
+                var header = username + "|" + intersect_target;
+                POSTMAN.open("POST", "updatescore");
+                POSTMAN.send(header);
+            }
         }
     }
     catch (err) {
@@ -144,5 +146,6 @@ function drawGraph() {
     draw();
 }
 
-// I have no idea what this does but it should make the program work.
+// Draws the graph the first time.
+redraw = true;
 draw()
