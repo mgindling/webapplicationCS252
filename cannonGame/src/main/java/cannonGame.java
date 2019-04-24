@@ -9,6 +9,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.StringTokenizer;
 import java.util.concurrent.ExecutionException;
 
 import com.google.auth.oauth2.GoogleCredentials;
@@ -65,7 +66,7 @@ public class cannonGame {
         ctx.json(users);
     }
 
-    public void writeUser(Context ctx, Firestore db, String name, int total, int made) {
+    public static void writeUser(Firestore db, String name, int total, int made) {
         List<QueryDocumentSnapshot> documents = readUsers(db);
         boolean userFound = false;
         User target = null;
@@ -80,6 +81,21 @@ public class cannonGame {
         }else{
             //initialize new user
             updateScore(db, name, total, made);
+        }
+    }
+
+    public static void processPost(Firestore db, String body) {
+        StringTokenizer st = new StringTokenizer(body, "|");
+        List<String> result = new ArrayList<>();
+        while (st.hasMoreTokens()) {
+            result.add(st.nextToken());
+        }
+        if(result.get(1).equals("false")){
+            writeUser(db,result.get(0),1,0);
+        }else if(result.get(1).equals("true")){
+            writeUser(db, result.get(0), 1, 1);
+        }else{
+
         }
     }
 
@@ -140,6 +156,10 @@ public class cannonGame {
 
         app.get("givemestats", ctx -> {
             sendUsers(ctx, readUsers(db));
+        });
+
+        app.post("updatescore", ctx -> {
+            processPost(db ,ctx.body());
         });
     }
 }

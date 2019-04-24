@@ -1,10 +1,8 @@
 // Creates the leaderboard from the gotten user variables
 function createLeaderBoard(response) {
-    document.getElementById("debug").innerHTML = response;
 
     // Checks if the response is an array (which it should be)
     var responseArray = JSON.parse(response);
-    document.getElementById("debug").innerHTML += "<br>" + responseArray;
 
     if (Array.isArray(responseArray) == true) {
         var players = response.length;
@@ -17,13 +15,14 @@ function createLeaderBoard(response) {
         var HTML_elements = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
 
         for (var a = 0; a < players; a++) {
-            document.getElementById(HTML_elements[a]).innerHTML = responseArray[a].name + ": " + responseArray[a].score;
+            document.getElementById(HTML_elements[a]).innerHTML = responseArray[a].name + ": " + responseArray[a].score + "%";
         }
 
     }
     else {
         alert("Sorry, something went wrong. Please try reloading the page.")
     }
+
 }
 
 // Makes an HHTP request for the user variables
@@ -33,7 +32,7 @@ function getHTTP() {
 
     HTTP.onreadystatechange = function () {
         if (HTTP.readyState === 4) {
-            createLeaderBoard(HTTP.responseText)
+            createLeaderBoard(HTTP.responseText);
         }
     }
 
