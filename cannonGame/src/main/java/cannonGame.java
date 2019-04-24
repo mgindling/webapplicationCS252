@@ -76,10 +76,10 @@ public class cannonGame {
             }
         }
         if(userFound){
-            updateScore(db, target.getName(), target.getTotal()+1, target.getMade()+1);
+            updateScore(db, target.getName(), target.getTotal()+1, target.getMade()+made);
         }else{
             //initialize new user
-
+            updateScore(db, name, total, made);
         }
     }
 
@@ -106,10 +106,6 @@ public class cannonGame {
             e.printStackTrace();
             System.out.println("failed to connect to the google account");
         }
-//        FirestoreOptions options0 =
-//                FirestoreOptions.newBuilder().setTimestampsInSnapshotsEnabled(true).build();
-//        Firestore firestore = options0.getService();
-
 
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setCredentials(credentials)
@@ -143,7 +139,6 @@ public class cannonGame {
         });
 
         app.get("givemestats", ctx -> {
-           //TODO: send leaderboard stats
             sendUsers(ctx, readUsers(db));
         });
     }
