@@ -172,3 +172,16 @@ function changePlanet(parameter1) {
         document.getElementById("gravLevel").innerHTML = "Gravity = 11.2 m/s<sup>2</sup>"
     }
 }
+
+/* Sets the username if one is not set */
+function setUsername() {
+    if (username == "") {
+        var person = prompt("Please enter your name", "");
+        if (person == "") {
+            alert("You did not enter a name!");
+        }
+        else {
+            username = person;
+        }
+    }
+}

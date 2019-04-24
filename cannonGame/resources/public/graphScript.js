@@ -10,6 +10,7 @@ var currentX = (Math.random() * 401) + 50;
 var currentY = (Math.random() * 25) + 151;
 var redraw = false;
 var newpoint = false;
+var username = "";
 
 function draw() {
     try {
