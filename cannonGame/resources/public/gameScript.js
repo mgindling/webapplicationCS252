@@ -177,7 +177,7 @@ function changePlanet(parameter1) {
 /* Sets the username if one is not set */
 function setUsername() {
     if (username == "") {
-        var person = prompt("Please enter your name", "");
+        var person = prompt("Enter your name to be on the leaderboards!", "");
         if (person == "") {
             alert("You did not enter a name!");
         }
