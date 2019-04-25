@@ -9,8 +9,8 @@
         <module name="cannonGame" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="cannonGame" target="1.8" />
+    <bytecodeTargetLevel target="9">
+      <module name="cannonGame" target="9" />
     </bytecodeTargetLevel>
   </component>
 </project>

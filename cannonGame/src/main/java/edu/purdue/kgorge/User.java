@@ -1,3 +1,5 @@
+package edu.purdue.kgorge;
+
 import static java.lang.Math.toIntExact;
 public class User {
     private String name;

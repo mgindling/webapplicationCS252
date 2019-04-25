@@ -1,3 +1,5 @@
+package edu.purdue.kgorge;
+
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;
@@ -100,21 +102,16 @@ public class cannonGame {
     }
 
     public static void main(String[] args) {
+        String port = System.getenv("PORT");
         Javalin app = Javalin
                 .create()
                 .enableStaticFiles("/public")
                 //.enableStaticFiles("../", Location.EXTERNAL)
-                .start(7000);
+                .start(port != null ? Integer.parseInt(port, 10) : 7000);
 
         // Use a service account
         // Begin connection to the firebase database
-        InputStream serviceAccount = null;
-        try {
-            serviceAccount = new FileInputStream("../cannon-game-a2e42-firebase-adminsdk-39rm8-f95a368b60.json");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            System.out.println("failed to use json private key");
-        }
+        InputStream serviceAccount = cannonGame.class.getResourceAsStream("/cannon-game-firebase.json");
         GoogleCredentials credentials = null;
         try {
             credentials = GoogleCredentials.fromStream(serviceAccount);
